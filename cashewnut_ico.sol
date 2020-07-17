@@ -7,9 +7,9 @@ contract cashewnut_ico {
     uint256 public usd_to_nuts = 1000;
     uint256 public total_nuts_bought = 0;
 
-    // // Mapping from investor address to its equity in nuts and USD
-    // mapping(address => uint256) equity_nuts;
-    // mapping(address => uint256) equity_usd;
+    // Mapping from investor address to its equity in nuts and USD
+    mapping(address => uint256) equity_nuts;
+    mapping(address => uint256) equity_usd;
 
     // // Checking if investor has nuts
     // modifier can_buy_nuts(uint256 usd_invested) {
