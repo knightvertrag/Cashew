@@ -77,6 +77,13 @@ class Blockchain:
         parsed_url = urlparse(address)
         self.nodes.add(parsed_url.netloc)
 
+    def replace_chain(self):
+        network = self.nodes
+        longest_chain = None
+        max_length = len(self.chain)
+        for nodes in network:
+            response = requests.get()
+
 
 app = Flask(__name__)
 
