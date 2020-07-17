@@ -11,14 +11,14 @@ contract cashewnut_ico {
     mapping(address => uint256) equity_nuts;
     mapping(address => uint256) equity_usd;
 
-    // // Checking if investor has nuts
-    // modifier can_buy_nuts(uint256 usd_invested) {
-    //     require(
-    //         usd_invested * usd_to_nuts + total_nuts_bought <= max_nuts,
-    //         "NOT ENOUGH NUTS"
-    //     );
-    //     _;
-    // }
+    // Checking if investor has nuts
+    modifier can_buy_nuts(uint256 usd_invested) {
+        require(
+            usd_invested * usd_to_nuts + total_nuts_bought <= max_nuts,
+            "NOT ENOUGH NUTS"
+        );
+        _;
+    }
 
     // //Get equity in nuts of investor
     // function equity_in_nuts(address investor) external view returns (uint256) {
