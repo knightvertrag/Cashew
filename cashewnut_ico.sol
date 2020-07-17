@@ -25,8 +25,8 @@ contract cashewnut_ico {
         return equity_nuts[investor];
     }
 
-    // //Get equity in USD of investor
-    // function equity_in_usd(address investor) external view returns (uint256) {
-    //     return equity_usd[investor];
-    // }
+    //Get equity in USD of investor
+    function equity_in_usd(address investor) external view returns (uint256) {
+        return equity_usd[investor];
+    }
 }
