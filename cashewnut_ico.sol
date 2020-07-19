@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: MIT
-pragma solidity 0.6.11;
+pragma solidity 0.4.11;
 
 contract cashewnut_ico {
     // Initialize trade variables
@@ -21,12 +21,31 @@ contract cashewnut_ico {
     }
 
     //Get equity in nuts of investor
-    function equity_in_nuts(address investor) external view returns (uint256) {
+    function equity_in_nuts(address investor)
+        external
+        constant
+        returns (uint256)
+    {
         return equity_nuts[investor];
     }
 
     //Get equity in USD of investor
-    function equity_in_usd(address investor) external view returns (uint256) {
+    function equity_in_usd(address investor)
+        external
+        constant
+        returns (uint256)
+    {
         return equity_usd[investor];
+    }
+
+    //Buy nuts
+    function buy_nuts(address investor, uint256 usd_invested)
+        external
+        can_buy_nuts(usd_invested)
+    {
+        uint256 nuts_bought = usd_invested * usd_to_nuts;
+        equity_nuts[investor] += nuts_bought;
+        equity_usd[investor] = equity_nuts[investor] / 1000;
+        total_nuts_bought += nuts_bought;
     }
 }
